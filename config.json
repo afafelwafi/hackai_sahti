@@ -1,0 +1,67 @@
+{
+  "dataset": {
+    "disease_classes": ["N", "AS", "AR", "MR", "MS"],
+    "normal_class": "N",
+    "train_csv": "train.csv",
+    "metadata_csv": "additional_metadata.csv",
+    "recording_columns": ["recording_1", "recording_2", "recording_3", "recording_4", "recording_5", "recording_6", "recording_7", "recording_8"],
+    "dataset_folder": "dataset",
+    "repo_url": "https://github.com/sani002/BMD-HS-Dataset"
+  },
+  "audio": {
+    "sample_rate": 16000,
+    "duration": 5.0,
+    "target_channels": 1
+  },
+  "demographics": {
+    "encoding": {
+      "M": 1,
+      "F": 0,
+      "U": 1,
+      "R": 0
+    }
+  },
+  "training": {
+    "batch_size": 16,
+    "epochs": 200,
+    "learning_rate": 0.001,
+    "test_ratio": 0.2,
+    "random_seed": 42,
+    "freeze_encoder": true,
+    "multi_label": false,
+    "early_stopping": {
+      "patience": 25,
+      "min_delta": 0.0001
+    },
+    "scheduler": {
+      "mode": "max",
+      "patience": 15,
+      "factor": 0.5
+    },
+    "gradient_clipping": {
+      "max_norm": 1.0
+    },
+    "weight_decay": 1e-3,
+    "dropout_rate": 0.3
+  },
+  "models": {
+    "available_models": [
+      "facebook/wav2vec2-base",
+      "facebook/wav2vec2-large",
+      "facebook/wav2vec2-large-960h",
+      "microsoft/wavlm-base-plus"
+    ],
+    "default_model": "facebook/wav2vec2-base",
+    "save_directory": "models"
+  },
+  "data_loading": {
+    "num_workers": 2,
+    "pin_memory": true,
+    "shuffle_train": true,
+    "shuffle_val": false
+  },
+  "logging": {
+    "print_frequency": 20,
+    "early_epochs_print": 10
+  }
+}
