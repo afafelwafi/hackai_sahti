@@ -5,7 +5,7 @@ This repository contains code for heartbeat audio classification using pre-train
 ## 🎯 Project Overview
 
 The system classifies heartbeat audio recordings to detect various heart conditions:
-- **Binary Classification**: Normal (N) vs Abnormal
+- **Binary Classification**: N : (0 : disease, 1: Normal)
 - **Multi-label Classification**: Multiple heart conditions simultaneously
   - N: Normal
   - AS: Aortic Stenosis  
@@ -54,6 +54,7 @@ The system classifies heartbeat audio recordings to detect various heart conditi
 ## 🚀 Setup and Installation
 
 ### Prerequisites
+- Hugging Face Token
 - Python 3.7+
 - CUDA-compatible GPU (recommended)
 
@@ -80,7 +81,11 @@ tqdm>=4.62.0
 ```
 
 ## 📊 Configuration
-
+First set your HF token
+```bash
+import os
+os.environ['HF_TOKEN'] = 'YOUR_API_TOKEN_HERE'
+```
 The `config.json` file contains all training parameters:
 
 ```json
